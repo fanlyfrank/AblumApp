@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="j0r-dG-Uig">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--植物相机-->
+        <scene sceneID="LLe-em-u40">
+            <objects>
+                <viewController id="yCu-1W-NuT" customClass="HomeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ez9-sl-Xas"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZOQ-3J-BeO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="amB-IH-P58">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFK-W0-0U3">
+                                <rect key="frame" x="0.0" y="279" width="600" height="42"/>
+                                <color key="backgroundColor" red="0.71229040440000002" green="1" blue="0.47203068009999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="9x0-Mi-dFA"/>
+                                    <constraint firstAttribute="width" constant="600" id="WUJ-6s-xNL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="拍植物">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="9x0-Mi-dFA"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="9x0-Mi-dFA"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="takePicture:" destination="yCu-1W-NuT" eventType="touchUpInside" id="21V-ee-vDX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="yFK-W0-0U3" secondAttribute="centerX" id="U7f-Uj-fMT"/>
+                            <constraint firstAttribute="centerY" secondItem="yFK-W0-0U3" secondAttribute="centerY" id="gvl-ua-ZVi"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="植物相机" id="VRt-QF-ZNB" userLabel="植物相机">
+                        <barButtonItem key="rightBarButtonItem" title="相册" id="SWN-Bj-Lib">
+                            <connections>
+                                <segue destination="xvb-oO-woE" kind="show" identifier="album" id="H40-K2-QPt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hsH-3O-ckq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="549" y="688"/>
+        </scene>
+        <!--Album Detail Controller-->
+        <scene sceneID="HMJ-d1-cg1">
+            <objects>
+                <collectionViewController storyboardIdentifier="AlbumDetailController" id="vc4-QS-lxR" customClass="AlbumDetailController" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="INm-0G-l4g">
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="X90-76-iyN">
+                            <size key="itemSize" width="145" height="140"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AblumCell" id="ilw-HI-5Yd">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="145" height="140"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <size key="customSize" width="145" height="140"/>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="vc4-QS-lxR" id="gVY-9A-rrF"/>
+                            <outlet property="delegate" destination="vc4-QS-lxR" id="wNw-rL-2XB"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kKb-dT-zvm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="549" y="1364"/>
+        </scene>
+        <!--相册-->
+        <scene sceneID="7NE-lY-oab">
+            <objects>
+                <collectionViewController storyboardIdentifier="AlbumViewController" id="xvb-oO-woE" customClass="AlbumViewController" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="OSw-ga-S2q">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.58823531870000001" green="0.75294125079999996" blue="0.91372555489999996" alpha="1" colorSpace="deviceRGB"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GnS-Jo-cZe">
+                            <size key="itemSize" width="145" height="140"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AblumCell" id="cFR-cL-7I4">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="145" height="140"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <size key="customSize" width="145" height="140"/>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="xvb-oO-woE" id="NcO-BS-bwT"/>
+                            <outlet property="delegate" destination="xvb-oO-woE" id="g2o-ib-ZUe"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="相册" id="Iqr-EP-yZh">
+                        <barButtonItem key="rightBarButtonItem" title="添加" id="VGQ-MA-tFr">
+                            <connections>
+                                <action selector="addNewAlbum:" destination="xvb-oO-woE" id="oJK-1S-3Wc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bz6-uw-l4Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1286" y="688"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PeF-TM-UmP">
+            <objects>
+                <navigationController id="j0r-dG-Uig" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="n2k-0c-iCq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="yCu-1W-NuT" kind="relationship" relationship="rootViewController" id="h83-GT-ea5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wAp-OU-54W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-116" y="688"/>
+        </scene>
+        <!--Create New Album Controller-->
+        <scene sceneID="Vgr-g0-dPv">
+            <objects>
+                <viewController storyboardIdentifier="CreateNewAlbumController" id="OAM-V6-dvZ" customClass="CreateNewAlbumController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Tmh-U7-Xpb"/>
+                        <viewControllerLayoutGuide type="bottom" id="1w9-y4-Xu3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3dl-y9-MZJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="亲，您还没有相册，请创建一个，刚才的图片会保存在创建的相册中!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LEJ-cg-XDm">
+                                <rect key="frame" x="164" y="63" width="272" height="71"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="272" id="M3D-ky-j7u">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="160"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="71" id="Sz9-vg-zNh">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="40"/>
+                                    </constraint>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact-widthClass=compact">
+                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                    <mask key="constraints">
+                                        <include reference="M3D-ky-j7u"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RKg-L3-7B8">
+                                <rect key="frame" x="248" y="222" width="105" height="30"/>
+                                <state key="normal" title="创建并保存图片">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="createAlbum:" destination="OAM-V6-dvZ" eventType="touchUpInside" id="jLI-90-zFx"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="输入相册名称（最多8字）" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mH0-nh-SFh">
+                                <rect key="frame" x="209" y="155" width="183" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="mH0-nh-SFh" secondAttribute="centerX" constant="-0.5" id="5XJ-IX-T9l"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LEJ-cg-XDm" secondAttribute="trailing" constant="48" id="BHy-Hl-KVt"/>
+                            <constraint firstItem="mH0-nh-SFh" firstAttribute="leading" secondItem="LEJ-cg-XDm" secondAttribute="trailing" constant="27" id="NyB-9X-AJ1">
+                                <variation key="heightClass=compact-widthClass=compact" constant="15"/>
+                            </constraint>
+                            <constraint firstItem="mH0-nh-SFh" firstAttribute="baseline" secondItem="LEJ-cg-XDm" secondAttribute="baseline" constant="-14" id="Oko-sx-bbv"/>
+                            <constraint firstItem="RKg-L3-7B8" firstAttribute="top" secondItem="mH0-nh-SFh" secondAttribute="bottom" constant="15" id="RgL-ux-Q6n"/>
+                            <constraint firstItem="LEJ-cg-XDm" firstAttribute="leading" secondItem="3dl-y9-MZJ" secondAttribute="leading" constant="48" id="SsJ-er-OxX">
+                                <variation key="heightClass=compact-widthClass=compact" constant="15"/>
+                            </constraint>
+                            <constraint firstAttribute="trailing" secondItem="mH0-nh-SFh" secondAttribute="trailing" constant="15" id="f4z-Q3-HxV"/>
+                            <constraint firstAttribute="centerX" secondItem="RKg-L3-7B8" secondAttribute="centerX" constant="-0.5" id="lif-Nx-HkC"/>
+                            <constraint firstItem="mH0-nh-SFh" firstAttribute="top" secondItem="RKg-L3-7B8" secondAttribute="top" constant="-67" id="max-qw-59u"/>
+                            <constraint firstAttribute="centerX" secondItem="LEJ-cg-XDm" secondAttribute="centerX" id="nBk-CK-gFk"/>
+                            <constraint firstItem="LEJ-cg-XDm" firstAttribute="top" secondItem="Tmh-U7-Xpb" secondAttribute="bottom" constant="43" id="o4Z-oX-8hz">
+                                <variation key="heightClass=compact-widthClass=compact" constant="15"/>
+                            </constraint>
+                            <constraint firstItem="LEJ-cg-XDm" firstAttribute="top" secondItem="mH0-nh-SFh" secondAttribute="top" constant="-92" id="rpU-wH-peO"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="BHy-Hl-KVt"/>
+                                <exclude reference="SsJ-er-OxX"/>
+                                <exclude reference="NyB-9X-AJ1"/>
+                                <exclude reference="Oko-sx-bbv"/>
+                                <exclude reference="f4z-Q3-HxV"/>
+                                <exclude reference="RgL-ux-Q6n"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="BHy-Hl-KVt"/>
+                                <include reference="SsJ-er-OxX"/>
+                                <exclude reference="nBk-CK-gFk"/>
+                                <include reference="o4Z-oX-8hz"/>
+                                <exclude reference="rpU-wH-peO"/>
+                                <exclude reference="5XJ-IX-T9l"/>
+                                <include reference="NyB-9X-AJ1"/>
+                                <include reference="Oko-sx-bbv"/>
+                                <include reference="f4z-Q3-HxV"/>
+                                <exclude reference="max-qw-59u"/>
+                                <include reference="RgL-ux-Q6n"/>
+                                <include reference="lif-Nx-HkC"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="albumNameLable" destination="mH0-nh-SFh" id="NgR-wi-2eq"/>
+                        <outlet property="titleLable" destination="LEJ-cg-XDm" id="EdS-yR-RJb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R4j-2J-4eN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-116" y="1364"/>
+        </scene>
+    </scenes>
+</document>
